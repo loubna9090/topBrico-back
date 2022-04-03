@@ -38,7 +38,7 @@ public class TopBricoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Ville villeArt2=new Ville("paris","75","0075");
+        Ville villeArt2=new Ville("paris","0075");
         villeRepository.save(villeArt2);
 
         Client clien2=new Client("nomClie2","prnomCli","email@client.com","123mdp",villeArt2);

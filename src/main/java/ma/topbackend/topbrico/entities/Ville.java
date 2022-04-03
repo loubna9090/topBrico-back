@@ -17,7 +17,6 @@ public class Ville {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nomVille;
-    private String cdInsee;
     private String cp;
 
     @OneToMany(mappedBy = "ville")
@@ -28,9 +27,8 @@ public class Ville {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<Client> client;
 
-    public Ville(String nomVille, String cdInsee, String cp) {
+    public Ville(String nomVille,String cp) {
         this.nomVille = nomVille;
-        this.cdInsee = cdInsee;
         this.cp = cp;
     }
     public Ville(String nomVille) {

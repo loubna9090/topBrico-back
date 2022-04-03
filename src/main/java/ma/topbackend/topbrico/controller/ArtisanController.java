@@ -48,10 +48,18 @@ public class ArtisanController {
 
     @PostMapping
     public Artisan saveArtisan(@RequestBody ArtisanDTO artisan,HttpServletRequest request) {
-//      Ville ville= villeRepository.findByNomVille(artisan.getVille());
-
+      Ville ville= villeRepository.findByNomVille(artisan.getVille());
         Artisan newArtisan= new Artisan();
-//        newArtisan.setVille(ville);
+        newArtisan.setNomArtisan(artisan.getNomArtisan());
+        newArtisan.setPrenomArtisan(artisan.getPrenomArtisan());
+        newArtisan.setRsArtisan(artisan.getRsArtisan());
+        newArtisan.setEmailArtisan(artisan.getEmailArtisan());
+        newArtisan.setMdpArtisan(artisan.getMdpArtisan());
+        newArtisan.setTelArtisan(artisan.getTelArtisan());
+        newArtisan.setAdressArtisan(artisan.getAdressArtisan());
+        newArtisan.setAdressArtisan2(artisan.getAdressArtisan2());
+
+        newArtisan.setVille(ville);
 //     Collection<Realisation> realisations= artisan.getRealisations();
 //        MultipartFile file = artisan.getPhoto();
 //        if(!file.isEmpty()) {
