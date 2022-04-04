@@ -46,8 +46,8 @@ public class ArtisanController {
        return artisanRepository.findAll();
     }
 
-    @PostMapping
-    public Artisan saveArtisan(@RequestBody ArtisanDTO artisan,HttpServletRequest request) {
+    @RequestMapping(value ="addartisan", headers = ("content-type=multipart/form-data"), method = RequestMethod.POST)
+    public Artisan saveArtisan(@RequestBody ArtisanDTO artisan,HttpServletRequest request ) {
       Ville ville= villeRepository.findByNomVille(artisan.getVille());
         Artisan newArtisan= new Artisan();
         newArtisan.setNomArtisan(artisan.getNomArtisan());
@@ -60,19 +60,19 @@ public class ArtisanController {
         newArtisan.setAdressArtisan2(artisan.getAdressArtisan2());
 
         newArtisan.setVille(ville);
-//     Collection<Realisation> realisations= artisan.getRealisations();
-//        MultipartFile file = artisan.getPhoto();
-//        if(!file.isEmpty()) {
-//            System.out.println("Nom du champ     : "+file.getName());
-//            System.out.println("Nom du fichier   : "+file.getOriginalFilename());
-//            System.out.println("Type de fichier  : "+file.getContentType());
-//            System.out.println("Taille en octets : "+file.getSize());
-//        }
-//     realisations.forEach(realisation -> photoRepository.saveAll(realisation.getPhoto()));
-//      List<Realisation> real=realisationRepository.saveAll(realisations);
-//      List<ServiceArt> listeServices=  artisan.getServiceArt().stream().map(serviceArt -> serviceArtRepository.findByNomService(serviceArt.getNomService())).map(serviceArt -> {serviceArt.setRealisation(real); serviceArt.setArtisans(List.of(artisan)); return serviceArt; }).collect(Collectors.toList());
+     Collection<Realisation> realisations= artisan.getRealisations();
+        MultipartFile file = artisan.getPhoto();
+        if(!file.isEmpty()) {
+            System.out.println("Nom du champ     : "+file.getName());
+            System.out.println("Nom du fichier   : "+file.getOriginalFilename());
+            System.out.println("Type de fichier  : "+file.getContentType());
+            System.out.println("Taille en octets : "+file.getSize());
+        }
+     realisations.forEach(realisation -> photoRepository.saveAll(realisation.getPhoto()));
+      List<Realisation> real=realisationRepository.saveAll(realisations);
+      List<ServiceArt> listeServices=  artisan.getServiceArt().stream().map(serviceArt -> serviceArtRepository.findByNomService(serviceArt.getNomService())).map(serviceArt -> {serviceArt.setRealisation(real); serviceArt.setArtisans(List.of(newArtisan)); return serviceArt; }).collect(Collectors.toList());
 
-//     artisan.setServiceArt(listeServices );
+     artisan.setServiceArt(listeServices );
 
         return artisanRepository.save(newArtisan);
     }

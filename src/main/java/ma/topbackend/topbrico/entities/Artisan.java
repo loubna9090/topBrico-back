@@ -91,5 +91,107 @@ public class Artisan {
 
     }
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNomArtisan() {
+        return nomArtisan;
+    }
+
+    public void setNomArtisan(String nomArtisan) {
+        this.nomArtisan = nomArtisan;
+    }
+
+    public String getPrenomArtisan() {
+        return prenomArtisan;
+    }
+
+    public void setPrenomArtisan(String prenomArtisan) {
+        this.prenomArtisan = prenomArtisan;
+    }
+
+    public String getRsArtisan() {
+        return rsArtisan;
+    }
+
+    public void setRsArtisan(String rsArtisan) {
+        this.rsArtisan = rsArtisan;
+    }
+
+    public String getEmailArtisan() {
+        return emailArtisan;
+    }
+
+    public void setEmailArtisan(String emailArtisan) {
+        this.emailArtisan = emailArtisan;
+    }
+
+    public String getAdressArtisan() {
+        return adressArtisan;
+    }
+
+    public void setAdressArtisan(String adressArtisan) {
+        this.adressArtisan = adressArtisan;
+    }
+
+    public String getAdressArtisan2() {
+        return adressArtisan2;
+    }
+
+    public void setAdressArtisan2(String adressArtisan2) {
+        this.adressArtisan2 = adressArtisan2;
+    }
+
+    public String getMdpArtisan() {
+        return mdpArtisan;
+    }
+
+    public void setMdpArtisan(String mdpArtisan) {
+        this.mdpArtisan = mdpArtisan;
+    }
+
+    public String getTelArtisan() {
+        return telArtisan;
+    }
+
+    public void setTelArtisan(String telArtisan) {
+        this.telArtisan = telArtisan;
+    }
+
+    public Ville getVille() {
+        return ville;
+    }
+
+    public void setVille(Ville ville) {
+        this.ville = ville;
+    }
+
+    public Collection<Commentaire> getCommentaire() {
+        return commentaire;
+    }
+
+    public void setCommentaire(Collection<Commentaire> commentaire) {
+        this.commentaire = commentaire;
+    }
+
+    public Collection<ServiceArt> getServiceArt() {
+        return serviceArt;
+    }
+
+    public void setServiceArt(Collection<ServiceArt> serviceArt) {
+        this.serviceArt = serviceArt;
+    }
+
+    public Collection<Realisation> getRealisation() {
+        return realisation;
+    }
+
+    public void setRealisation(Collection<Realisation> realisation) {
+        this.realisation = realisation;
+    }
 }
